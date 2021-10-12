@@ -1,0 +1,101 @@
+@use "../util/" as *;
+
+.info {
+  &__title {
+    h1 {
+      margin-bottom: rem(30);
+      font-size: rem(34);
+      letter-spacing: rem(-0.5);
+    }
+  }
+
+  &__desc {
+    margin: 0 rem(-5.5) rem(45);
+
+    p {
+      color: var(--dark-gray-mag);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+  }
+
+  &__reviews {
+    .reviews__box {
+      border-radius: rem(9);
+
+      &:not(:last-child) {
+        margin-bottom: rem(15);
+      }
+
+      &:last-child {
+        margin-bottom: rem(49);
+      }
+
+      background-color: var(--light-gray-mag);
+      padding: rem(18) 0;
+
+      .box__stars {
+        margin-bottom: rem(12);
+      }
+
+      .box__desc {
+        p {
+          margin: 0;
+          font-weight: 700;
+          color: var(--very-dark-mag);
+          font-size: rem(13);
+        }
+      }
+    }
+  }
+
+  &__people {
+    border-radius: rem(9);
+    background-color: var(--very-dark-mag);
+    padding: rem(36) rem(30);
+    text-align: start;
+
+    &:not(:last-child) {
+        margin-bottom: rem(16);
+    }
+
+    .info__people-header {
+        display: flex;
+        margin-bottom: rem(27);
+
+      .people__img {
+          margin-right: rem(23);
+          img {
+              border-radius: 100%;
+              width: rem(40);
+          }
+      }
+
+      .people__name {
+          h3 {
+              padding-top: rem(3);
+              font-size: rem(14);
+              color: var(--white);
+              margin-bottom: rem(6);
+          }
+          p {
+              font-size: rem(14);
+              color: var(--soft-pink);
+              font-weight: 400;
+          }
+      }
+    }
+
+    .info__people-main {
+        margin-right: rem(-4.7);
+      .people__review {
+          p {
+              color: var(--white);
+              line-height: 2;
+              letter-spacing: rem(.5);
+              font-size: rem(12.1);
+          }
+      }
+    }
+  }
+}
