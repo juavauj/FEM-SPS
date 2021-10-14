@@ -6,6 +6,13 @@
 
   @include breakpoint(large) {
     max-width: rem(1110);
-    margin: rem(120) auto rem(99);
+    margin: rem(125) auto rem(99);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "header stars"
+    "people people";
   }
 }

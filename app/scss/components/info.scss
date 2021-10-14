@@ -1,16 +1,34 @@
 @use "../util/" as *;
 
 .info {
+  header {
+    grid-area: header;
+
+    @include breakpoint(large) {
+      text-align: start;
+      padding-right: rem(105);
+      margin-bottom: rem(68);
+    }
+  }
   &__title {
     h1 {
       margin-bottom: rem(30);
       font-size: rem(34);
       letter-spacing: rem(-0.5);
+
+      @include breakpoint(large) {
+        margin-bottom: rem(15);
+        font-size: rem(46);
+      }
     }
   }
 
   &__desc {
     margin: 0 rem(-5.5) rem(45);
+
+    @include breakpoint(large) {
+      margin: 0 rem(-1.5);
+    }
 
     p {
       color: var(--dark-gray-mag);
@@ -20,8 +38,15 @@
   }
 
   &__reviews {
+    grid-area: stars;
+
+    @include breakpoint(large) {
+      margin-top: rem(15);
+    }
     .reviews__box {
       border-radius: rem(9);
+      background-color: var(--light-gray-mag);
+      padding: rem(18) 0;
 
       &:not(:last-child) {
         margin-bottom: rem(15);
@@ -31,11 +56,37 @@
         margin-bottom: rem(49);
       }
 
-      background-color: var(--light-gray-mag);
-      padding: rem(18) 0;
+      @include breakpoint(large) {
+        display: flex;
+        align-items: center;
+        padding: rem(16) 0;
+        padding-left: rem(30);
+
+        &:not(:last-child) {
+          margin-bottom: rem(16);
+        }
+
+        &:first-child {
+          margin-right: rem(95);
+        }
+
+        &:nth-child(2) {
+          margin: 0 rem(47.5) rem(16);
+        }
+
+        &:last-child {
+          margin-left: rem(95);
+          margin-bottom: 0;
+        }
+      }
 
       .box__stars {
         margin-bottom: rem(12);
+
+        @include breakpoint(large) {
+          margin-bottom: 0;
+          padding-right: rem(30);
+        }
       }
 
       .box__desc {
@@ -49,52 +100,87 @@
     }
   }
 
-  &__people {
-    border-radius: rem(9);
-    background-color: var(--very-dark-mag);
-    padding: rem(36) rem(30);
-    text-align: start;
+  section {
+    grid-area: people;
+    grid-column: 1 / 3;
+  }
 
-    &:not(:last-child) {
-        margin-bottom: rem(16);
+  &__people-box {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(large) {
+      flex-direction: row;
+      gap: rem(30);
     }
 
-    .info__people-header {
+    .info__people {
+      border-radius: rem(9);
+      background-color: var(--very-dark-mag);
+      padding: rem(37) rem(30);
+      text-align: start;
+
+      &:not(:last-child) {
+        margin-bottom: rem(16);
+
+        @include breakpoint(large) {
+          margin-bottom: 0;
+        }
+      }
+
+      @include breakpoint(large) {
+        max-width: rem(350);
+
+        &:first-child {
+          margin-bottom: rem(32);
+        }
+
+        &:nth-child(2) {
+          margin: rem(16) 0;
+        }
+
+        &:last-child {
+          margin-top: rem(32);
+        }
+      }
+
+      .info__people-header {
         display: flex;
         margin-bottom: rem(27);
 
-      .people__img {
+        .people__img {
           margin-right: rem(23);
           img {
-              border-radius: 100%;
-              width: rem(40);
+            border-radius: 100%;
+            width: rem(40);
           }
-      }
+        }
 
-      .people__name {
+        .people__name {
           h3 {
-              padding-top: rem(3);
-              font-size: rem(14);
-              color: var(--white);
-              margin-bottom: rem(6);
+            padding-top: rem(3);
+            font-size: rem(14);
+            color: var(--white);
+            margin-bottom: rem(6);
           }
           p {
-              font-size: rem(14);
-              color: var(--soft-pink);
-              font-weight: 400;
+            font-size: rem(14);
+            color: var(--soft-pink);
+            font-weight: 400;
           }
+        }
       }
-    }
 
-    .info__people-main {
+      .info__people-main {
         margin-right: rem(-4.7);
-      .people__review {
+        .people__review {
           p {
-              color: var(--white);
-              line-height: 2;
-              letter-spacing: rem(.5);
-              font-size: rem(12.1);
+            color: var(--white);
+            line-height: 2;
+            letter-spacing: rem(0.5);
+            font-size: rem(12.1);
           }
+        }
       }
     }
   }
